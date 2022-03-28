@@ -7,7 +7,7 @@ const printProfileData = profileDataArr => {
     }
 
     console.log('============');
-// same as for loop above
+// same as for loop above forEach is an ARRAY METHOD - only works on arrays
     profileDataArr.forEach((profileItem) => console.log(profileItem));
 };
 
