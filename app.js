@@ -127,8 +127,6 @@ promptUser()
   .then(promptProject)
   .then(portfolioData => console.log(portfolioData));
 
-// const fs = require('fs');
-// const generatePage = require('./src/page-template.js');
 
 // const pageHTML = generatePage(userName, github);
 
