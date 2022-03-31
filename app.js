@@ -125,27 +125,12 @@ Add a New Project
 
 promptUser()
   .then(promptProject)
-  .then(portfolioData => console.log(portfolioData));
+  .then(portfolioData => {
+    const pageHTML = generatePage(portfolioData);
 
+    fs.writeFile('./index.html', pageHTML, err => {
+        if (err) throw err;
 
-// const pageHTML = generatePage(userName, github);
-
-// fs.writeFile('./index.html', pageHTML, err => {
-//     if (err) throw err;
-
-//     console.log('Portfolio complete! Check out index.html to see the output!');
-// });
-
-
-// const printProfileData = profileDataArr => {
-//     //for loop is same as forEach method
-//     for (let i=0; i<profileDataArr.length; i++) {
-//         console.log(profileDataArr[i]);
-//     }
-
-//     console.log('============');
-// // same as for loop above forEach is an ARRAY METHOD - only works on arrays
-//     profileDataArr.forEach((profileItem) => console.log(profileItem));
-// };
-
-// printProfileData(profileDataArgs);
+        console.log('Portfolio complete! Check out index.html to see the output!');
+    });
+  });
