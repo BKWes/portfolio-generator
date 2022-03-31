@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-generator",
+  "version": "1.0.0",
+  "description": "a command-line application that prompts the user questions to create information on a portfolio. then generates an html file for the created 'folio",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BKWes/portfolio-generator.git"
+  },
+  "author": "weston barnes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BKWes/portfolio-generator/issues"
+  },
+  "homepage": "https://github.com/BKWes/portfolio-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.2"
+  }
+}
