@@ -1,6 +1,6 @@
-const fs = require('fs');
 const inquirer = require('inquirer');
 const generatePage = require('./src/page-template');
+const { writeFile, copyFile } = require('./utils/generate-site.js')
 
 const promptUser = () => {
     return inquirer.prompt([
@@ -126,15 +126,18 @@ Add a New Project
 promptUser()
   .then(promptProject)
   .then(portfolioData => {
-    const pageHTML = generatePage(portfolioData);
-
-    fs.writeFile('./dist/index.html', pageHTML, err => {
-        if (err) throw err;
-        console.log('Page created! Check out index.html in this directory to see the output!');
-        
-        fs.copyFile('./src/style.css', './dist/style.css', err => {
-            if (err) throw err;
-            console.log('Style sheet copied successfully!');
-        });
-    });
+    return generatePage(portfolioData);
+  })
+  .then(pageHTML => {
+      return writeFile(pageHTML);
+  })
+  .then(writeFileResponse => {
+      console.log(writeFileResponse);
+      return copyFile();
+  })
+  .then(copyFileResponse =>{
+      console.log(copyFileResponse);
+  })
+  .catch (err => {
+      console.log(err);
   });
